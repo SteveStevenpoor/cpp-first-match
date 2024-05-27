@@ -32,8 +32,8 @@ TEST(match, points) {
         -1);
         EXPECT_EQ(
         getIndexOfFirstMatch([](Point p) { return (p.x_ > 3); },
-                            Point(4, 1), Point(5, 2), Point(1, 3)),
-        0);
+                            Point(2, 1), Point(5, 2), Point(10, 3)),
+        1);
 }
 
 
