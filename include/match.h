@@ -9,17 +9,14 @@
 
 using namespace std;
 
+// short curciets execution
 template <typename Checker, typename... Args>
 int getIndexOfFirstMatch(Checker check, Args&&... args) {
     int idx = -1;
-    vector<bool> check_results = {check(std::forward<Args>(args)) ...};
+    int i = 0;
+
+    ((check(std::forward<Args>(args))? idx = i : i++), ...);
     
-    for (int i = 0; i < check_results.size(); i++) {
-        if (check_results[i]) {
-            idx = i;
-            break;
-        }
-    }
     return idx;
 }
 
